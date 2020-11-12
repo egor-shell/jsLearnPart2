@@ -1,0 +1,292 @@
+$pink: #d56aa4;
+$regular: 400;
+$semiBold: 600;
+
+@font-face {
+    font-family: "Exo 2";
+    src: url("fonts/Exo2-Regular.woff2") format("woff2"), url("fonts/Exo2-Regular.woff") format("woff"),
+        url("fonts/Exo2-Regular.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Exo 2";
+    src: url("fonts/Exo2-SemiBold.woff2") format("woff2"), url("fonts/Exo2-SemiBold.woff") format("woff"),
+        url("fonts/Exo2-SemiBold.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.bg {
+    background: url(img/Background.jpg) fixed;
+    background-color: #464542;
+    background-position-x: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.header {
+    background-color: #2a3246;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+
+    &-block {
+        display: flex;
+        justify-content: space-between;
+        padding: 35px 100px 35px 100px;
+
+        &__basket {
+            position: relative;
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            &-round {
+                background-color: $pink;
+                position: absolute;
+                top: 0;
+                right: -10px;
+                padding: 2px 7px;
+                border-radius: 100%;
+                font-family: "Exo 2";
+                font-weight: $semiBold;
+                font-size: 12px;
+                color: white;
+            }
+        }
+    }
+}
+.basket-block {
+    position: absolute;
+    top: 125px;
+    right: 0;
+    width: 320px;
+    max-width: 320px;
+    // max-height: 480px;
+    background: #151e35;
+    // overflow-y: scroll;
+    &__tag {
+        margin-bottom: 10px;
+    }
+    &__name {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block {
+        padding: 30px;
+        overflow-y: scroll;
+        max-height: 420px;
+    }
+    &__header {
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+    }
+    &__empty {
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 18px;
+        margin-top: 12px;
+        color: white;
+    }
+    &__sum {
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 18px;
+        margin-top: 12px;
+        color: white;
+    }
+    &__item {
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 18px;
+        margin-top: 12px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    &__buy {
+        border-radius: 35px;
+        margin-top: 24px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+        background-size: 150%;
+        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        transition: 0.3s;
+        padding: 7px 15px 12px 15px;
+
+        &-text {
+            font-family: "Exo 2";
+            font-weight: 600;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            line-height: normal;
+        }
+
+        &:hover {
+            background-position: right;
+        }
+    }
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+    &__amount {
+        border-radius: 5px;
+        margin-right: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+        background-size: 150%;
+        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        transition: 0.3s;
+        padding: 0 17px 12px 5px;
+        max-width: 15px;
+        max-height: 37px;
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+    }
+    &__input {
+        padding: 10px;
+        font-family: "Exo 2";
+        font-size: 14px;
+        outline: none;
+        max-width: 20px;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+
+        &-sum {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+        }
+    }
+}
+.main {
+    &__line {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 32px;
+        flex-wrap: wrap;
+        &-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            width: 25%;
+
+            &:hover .main__line-item-small {
+                width: 110%;
+            }
+            &:hover .main__line-item-big {
+                width: 150%;
+            }
+            &-gun {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &-header {
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 24px;
+                color: white;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+            &-small {
+                position: absolute;
+                width: 100%;
+                transition: 0.3s;
+                transition-timing-function: ease-in-out;
+            }
+            &-big {
+                position: absolute;
+                width: 135%;
+                transition: 0.3s;
+                transition-timing-function: ease-in-out;
+            }
+            &-round {
+                background: #c4c4c4;
+                border-radius: 100%;
+                padding: 85px;
+                box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+            }
+            &-name {
+                font-family: "Exo 2";
+                font-weight: 400;
+                font-size: 24px;
+                color: white;
+            }
+            &-price {
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 18px;
+                color: white;
+            }
+            &-buy {
+                padding-top: 7px;
+                padding-bottom: 15px;
+                width: 100%;
+                max-width: 170px;
+                border-radius: 35px;
+                margin-top: 24px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+                // background: linear-gradient(to right, #ff8024, #df499a);
+                background-size: 150%;
+                box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+                transition: 0.3s;
+
+                &__text {
+                    font-family: "Exo 2";
+                    font-weight: $semiBold;
+                    color: white;
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+                &:hover {
+                    margin-top: 14px;
+                    background-position: right;
+                }
+            }
+        }
+    }
+}
+.disable {
+    display: none;
+}

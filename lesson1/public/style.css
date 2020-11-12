@@ -1,0 +1,363 @@
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-Regular.woff2") format("woff2"), url("fonts/Exo2-Regular.woff") format("woff"), url("fonts/Exo2-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-SemiBold.woff2") format("woff2"), url("fonts/Exo2-SemiBold.woff") format("woff"), url("fonts/Exo2-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  background: url(img/Background.jpg) fixed;
+  background-color: #464542;
+  background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #2a3246;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 35px 100px 35px 100px;
+}
+
+.header-block__basket {
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.header-block__basket-round {
+  background-color: #d56aa4;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  padding: 2px 7px;
+  border-radius: 100%;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+}
+
+.basket-block {
+  position: absolute;
+  top: 125px;
+  right: 0;
+  width: 320px;
+  max-width: 320px;
+  background: #151e35;
+}
+
+.basket-block__tag {
+  margin-bottom: 10px;
+}
+
+.basket-block__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.basket-block__block {
+  padding: 30px;
+  overflow-y: scroll;
+  max-height: 420px;
+}
+
+.basket-block__header {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+
+.basket-block__empty {
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 12px;
+  color: white;
+}
+
+.basket-block__sum {
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 12px;
+  color: white;
+}
+
+.basket-block__item {
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 12px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.basket-block__buy {
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 7px 15px 12px 15px;
+}
+
+.basket-block__buy-text {
+  font-family: "Exo 2";
+  font-weight: 600;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: normal;
+}
+
+.basket-block__buy:hover {
+  background-position: right;
+}
+
+.basket-block__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.basket-block__amount {
+  border-radius: 5px;
+  margin-right: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0 17px 12px 5px;
+  max-width: 15px;
+  max-height: 37px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+
+.basket-block__input {
+  padding: 10px;
+  font-family: "Exo 2";
+  font-size: 14px;
+  outline: none;
+  max-width: 20px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+.basket-block__input-sum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.main__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 32px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main__line-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 25%;
+}
+
+.main__line-item:hover .main__line-item-small {
+  width: 110%;
+}
+
+.main__line-item:hover .main__line-item-big {
+  width: 150%;
+}
+
+.main__line-item-gun {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__line-item-header {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.main__line-item-small {
+  position: absolute;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.main__line-item-big {
+  position: absolute;
+  width: 135%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.main__line-item-round {
+  background: #c4c4c4;
+  border-radius: 100%;
+  padding: 85px;
+  -webkit-box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+          box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+}
+
+.main__line-item-name {
+  font-family: "Exo 2";
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+}
+
+.main__line-item-price {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+}
+
+.main__line-item-buy {
+  padding-top: 7px;
+  padding-bottom: 15px;
+  width: 100%;
+  max-width: 170px;
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main__line-item-buy__text {
+  font-family: "Exo 2";
+  font-weight: 600;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+.main__line-item-buy:hover {
+  margin-top: 14px;
+  background-position: right;
+}
+
+.disable {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */
