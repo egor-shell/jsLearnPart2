@@ -35,6 +35,8 @@ class Item {
     }
 
     getMainTemplate() {
+        
+
         const { tag, name, price, img } = this
         const wrapper = document.createElement('div')
         wrapper.classList.add('main__line-item')
@@ -107,6 +109,7 @@ class Item {
         // return wrapper
         return wrapper
     }
+
 }
 
 class List {
@@ -147,7 +150,6 @@ class List {
     render() {
     }
 }
-
 class Cart extends List {
     constructor(items) {
         if (Cart._instance) {
@@ -159,6 +161,7 @@ class Cart extends List {
 
         Cart._instance = this
     }
+
 
     init() {
         const block = document.createElement('div')
@@ -246,6 +249,22 @@ class GunsList extends List {
     constructor(items) {
         super(items)
     }
+    fetchGoods () {
+        const result = fetch('./database1.json')
+        return result
+            .then(ress => {
+                return ress.json()
+            })
+            .then(data => {
+                alert(data)
+                this.items = data.data.map(cur => {
+                    return new Item(cur)
+                })
+            })
+            .catch(e => {
+                alert(e)
+            })
+    }
 
     render() {
         const placeToRender = document.querySelector('.main__line')
@@ -262,24 +281,26 @@ class GunsList extends List {
     }
 }
 
-const Blaze = new Item('Desert Eagle', 'Пламя', 23325, 'img/Blaze_1.png')
-const Skeleton = new Item('Скелетный Нож', 'Кровавая паутина', 198000, 'img/skeletonKnife_1.png')
-const HotRod = new Item('M4A1-S', 'Хот-Род', 10430, 'img/hotRot_1.png')
-const Howl = new Item('M4A4', 'Вой', 153899, 'img/howl_1.png')
-const Glock = new Item('Glock-18', 'Градиент', 69800, 'img/gradient_1.png')
-const Dlore = new Item('AWP', 'История о Драконе', 303074, 'img/dragonLore_1.png')
-const Gungnir = new Item('AWP', 'Гунгнир', 488800, 'img/gungnir_1.png')
-const Lotus = new Item('AK-47', 'Дикий лотос', 290000, 'img/wildLotus_1.png')
+// const Blaze = new Item('Desert Eagle', 'Пламя', 23325, 'img/Blaze_1.png')
+// const Skeleton = new Item('Скелетный Нож', 'Кровавая паутина', 198000, 'img/skeletonKnife_1.png')
+// const HotRod = new Item('M4A1-S', 'Хот-Род', 10430, 'img/hotRot_1.png')
+// const Howl = new Item('M4A4', 'Вой', 153899, 'img/howl_1.png')
+// const Glock = new Item('Glock-18', 'Градиент', 69800, 'img/gradient_1.png')
+// const Dlore = new Item('AWP', 'История о Драконе', 303074, 'img/dragonLore_1.png')
+// const Gungnir = new Item('AWP', 'Гунгнир', 488800, 'img/gungnir_1.png')
+// const Lotus = new Item('AK-47', 'Дикий лотос', 290000, 'img/wildLotus_1.png')
 
+
+// const GunsListInstance = new GunsList()
+// GunsListInstance.add(Blaze)
+// GunsListInstance.add(Skeleton)
+// GunsListInstance.add(HotRod)
+// GunsListInstance.add(Howl)
+// GunsListInstance.add(Glock)
+// GunsListInstance.add(Dlore)
+// GunsListInstance.add(Gungnir)
+// GunsListInstance.add(Lotus)
+// GunsListInstance.add(itemFirst)
 const GunsListInstance = new GunsList()
-GunsListInstance.add(Blaze)
-GunsListInstance.add(Skeleton)
-GunsListInstance.add(HotRod)
-GunsListInstance.add(Howl)
-GunsListInstance.add(Glock)
-GunsListInstance.add(Dlore)
-GunsListInstance.add(Gungnir)
-GunsListInstance.add(Lotus)
-GunsListInstance.render()
 
 const CartInstance = new Cart()
