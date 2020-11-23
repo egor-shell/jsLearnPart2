@@ -5,7 +5,7 @@ class Item {
     img = ''
     count = 1
 
-    constructor(tag, name, price, img) {
+    constructor({ tag, name, price, img }) {
         this.tag = tag
         this.name = name
         this.price = price
@@ -115,8 +115,8 @@ class Item {
 class List {
     items = []
 
-    constructor(items = []) {
-        this.items = items
+    constructor(item = []) {
+        this.item = []
     }
 
     findGood(gun) {
@@ -246,26 +246,52 @@ class Cart extends List {
 }
 
 class GunsList extends List {
-    constructor(items) {
-        super(items)
-    }
-    fetchGoods () {
-        const result = fetch('./database1.json')
-        return result
-            .then(ress => {
-                return ress.json()
-            })
-            .then(data => {
-                alert(data)
-                this.items = data.data.map(cur => {
-                    return new Item(cur)
-                })
-            })
-            .catch(e => {
-                alert(e)
-            })
+    _cartInstanse = null
+    _pageCounter = 1
+
+    constructor(CartInstance) {
+        super()
+        this._cartInstanse = CartInstance
+
+        this.initShowMoreBtn()
+
+        let goodsPromise = this.fetchGuns()
+        goodsPromise.then(() => {
+            this.render()
+        })
     }
 
+    initShowMoreBtn () {
+        const btn = document.querySelector('.main__button')
+        btn.addEventListener('click', () => {
+            this._pageCounter++
+            this.fetchGuns()
+            .then(() => {
+                this.render()
+
+                if (this._pageCounter > 2) {
+                    const btn = document.querySelector('.main__button')
+                    btn.classList.toggle('disable')
+                }
+            })
+        })
+    }
+
+    fetchGuns () {
+        const result = fetch(`http://localhost:3000/database/page${this._pageCounter}.json`)
+        return result
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                this.items.push(...data.data.map(cur =>{
+                    return new Item (cur)
+                }))
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
     render() {
         const placeToRender = document.querySelector('.main__line')
         if (!placeToRender) {
@@ -281,26 +307,5 @@ class GunsList extends List {
     }
 }
 
-// const Blaze = new Item('Desert Eagle', 'Пламя', 23325, 'img/Blaze_1.png')
-// const Skeleton = new Item('Скелетный Нож', 'Кровавая паутина', 198000, 'img/skeletonKnife_1.png')
-// const HotRod = new Item('M4A1-S', 'Хот-Род', 10430, 'img/hotRot_1.png')
-// const Howl = new Item('M4A4', 'Вой', 153899, 'img/howl_1.png')
-// const Glock = new Item('Glock-18', 'Градиент', 69800, 'img/gradient_1.png')
-// const Dlore = new Item('AWP', 'История о Драконе', 303074, 'img/dragonLore_1.png')
-// const Gungnir = new Item('AWP', 'Гунгнир', 488800, 'img/gungnir_1.png')
-// const Lotus = new Item('AK-47', 'Дикий лотос', 290000, 'img/wildLotus_1.png')
-
-
-// const GunsListInstance = new GunsList()
-// GunsListInstance.add(Blaze)
-// GunsListInstance.add(Skeleton)
-// GunsListInstance.add(HotRod)
-// GunsListInstance.add(Howl)
-// GunsListInstance.add(Glock)
-// GunsListInstance.add(Dlore)
-// GunsListInstance.add(Gungnir)
-// GunsListInstance.add(Lotus)
-// GunsListInstance.add(itemFirst)
-const GunsListInstance = new GunsList()
-
-const CartInstance = new Cart()
+const CartInstance = new Cart ()
+const GunsListInstance = new GunsList(CartInstance)

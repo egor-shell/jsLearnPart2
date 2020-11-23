@@ -24,12 +24,13 @@ $semiBold: 600;
     padding: 0;
 }
 .bg {
-    background: url(img/Background.jpg) fixed;
-    background-color: #464542;
-    background-position-x: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background: url(img/Background.jpg);
+    // background-color: #464542;
+    // background-position-x: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-bottom: 50px;
 }
 .container {
     max-width: 1280px;
@@ -287,6 +288,37 @@ $semiBold: 600;
                     background-position: right;
                 }
             }
+        }
+    }
+    &__btn-block {
+        display: flex;
+        justify-content: center;
+    }
+    &__button {
+        color: white;
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        width: 100%;
+        max-width: 170px;
+        border-radius: 35px;
+        margin-top: 24px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+        background-size: 150%;
+        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        transition: 0.3s;
+
+        &:hover {
+            background-position: right;
         }
     }
 }

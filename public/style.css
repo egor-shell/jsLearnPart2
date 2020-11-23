@@ -19,12 +19,9 @@
 }
 
 .bg {
-  background: url(img/Background.jpg) fixed;
-  background-color: #464542;
-  background-position-x: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
+  background: url(img/Background.jpg);
+  background-attachment: fixed;
+  padding-bottom: 50px;
 }
 
 .container {
@@ -367,6 +364,44 @@
 
 .main__line-item-buy:hover {
   margin-top: 14px;
+  background-position: right;
+}
+
+.main__btn-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main__button {
+  color: white;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  width: 100%;
+  max-width: 170px;
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main__button:hover {
   background-position: right;
 }
 
