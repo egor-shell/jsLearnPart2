@@ -69,14 +69,16 @@ $semiBold: 600;
 .basket-block {
     position: absolute;
     top: 125px;
-    right: 0;
+    right: 10px;
     width: 320px;
     max-width: 320px;
-    // max-height: 480px;
     background: #151e35;
-    // overflow-y: scroll;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+
     &__tag {
-        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 600;
     }
     &__name {
         display: flex;
@@ -85,7 +87,17 @@ $semiBold: 600;
     &__block {
         padding: 30px;
         overflow-y: scroll;
-        max-height: 420px;
+        max-height: 422px;
+
+        &::before {
+            content: '';
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid red;
+            position: absolute;
+            top: -30px;
+            right: 92px;
+        }
     }
     &__header {
         font-family: "Exo 2";
@@ -105,17 +117,59 @@ $semiBold: 600;
         font-family: "Exo 2";
         font-weight: normal;
         font-size: 18px;
-        margin-top: 12px;
         color: white;
     }
+    &__sum-block {
+        background: #151e35;
+        padding-top: 33px;
+        padding-bottom: 33px;
+        padding-left: 30px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        max-width: 270px;
+        bottom: -55px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
     &__item {
+        position: relative;
         font-family: "Exo 2";
         font-weight: normal;
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 12px;
         color: white;
         display: flex;
         flex-direction: column;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+
+        &__img-name {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-naming {
+            margin-left: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            span {
+                text-align: right;
+            }
+        }
+        &-img {
+            position: absolute;
+            top: -5px;
+            left: -22px;
+            max-width: 107px;
+        }
+        &-round {
+            background: #c4c4c4;
+            width: 64px;
+            height: 64px;
+            border-radius: 50px;
+        }
     }
     &__buy {
         border-radius: 35px;
@@ -148,29 +202,32 @@ $semiBold: 600;
     &__footer {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         margin-top: 10px;
     }
     &__amount {
-        border-radius: 5px;
-        margin-right: 10px;
+        // border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
         outline: none;
         border: none;
         cursor: pointer;
-        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
-        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
-        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
-        background-size: 150%;
-        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        background: #DEE2E6;
         transition: 0.3s;
         padding: 0 17px 12px 5px;
         max-width: 15px;
         max-height: 37px;
         font-family: "Exo 2";
-        font-weight: 600;
+        font-weight: normal;
         font-size: 28px;
         color: white;
         text-align: center;
+
+        &:hover {
+            &:hover {
+                background-color: rgb(255, 128, 36);
+            }
+        }
     }
     &__input {
         padding: 10px;
@@ -178,7 +235,6 @@ $semiBold: 600;
         font-size: 14px;
         outline: none;
         max-width: 20px;
-        border-radius: 10px;
         border: none;
         text-align: center;
 
@@ -187,6 +243,31 @@ $semiBold: 600;
             justify-content: space-between;
             align-items: center;
             flex-grow: 1;
+        }
+    }
+    &__control {
+        display: flex;
+    }
+    &__plus {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: #DEE2E6;
+        background-size: 150%;
+        transition: .3s;
+        padding: 0 21px 13px 5px;
+        max-width: 15px;
+        max-height: 37px;
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+
+        &:hover {
+            background-color: rgb(255, 128, 36);
         }
     }
 }

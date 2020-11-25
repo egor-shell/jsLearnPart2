@@ -43,7 +43,7 @@ class Item {
         wrapper.innerHTML = `
         <h2 class="main__line-item-header">${tag}</h2>
         <div class="main__line-item-gun">
-            <img src='${img}' alt="item" class="main__line-item-big">
+            <img src='${this.img}' alt="item" class="main__line-item-big">
             <div class="main__line-item-round"></div>
          </div>
          <h3 class="main__line-item-name">${name}</h3>
@@ -68,14 +68,33 @@ class Item {
 
         return btn
     }
+    getPlusBtn() {
+        const btn = document.createElement('button')
+        btn.classList.add('basket-block__plus')
+        btn.innerHTML = '+'
+
+        btn.addEventListener('click', () => {
+            const CartInstance = new Cart()
+            CartInstance.add(this)
+            console.log(CartInstance)
+        })
+
+        return btn
+    }
 
     getCartTemplate() {
         const { tag, name, price, count } = this
         const wrapper = document.createElement('div')
         wrapper.classList.add('basket-block__item')
         wrapper.innerHTML = `
-      <span class="basket-block__tag">${tag}</span> 
-      <div class="basket-block__name"><span>${name}:</span> <span>${price}</span></div>
+        <div class="basket-block__item__img-name">
+            <img src ="${this.img}" class="basket-block__item-img"></img>
+            <div class="basket-block__item-round"></div>
+            <div class="basket-block__item-naming">
+                <span class="basket-block__tag">${tag}</span> 
+                <span>${name}</span>
+            </div>
+        </div>
     `
         const minus = document.createElement('div')
         minus.classList.add('basket-block__minus')
@@ -84,13 +103,22 @@ class Item {
         inputBlock.classList.add('basket-block__input-sum')
         inputBlock.innerHTML = `
             <input value="${count}" class='basket-block__input' maxlength="2" />
-            <span>${price * count}</span>
         `
-
+        const infoBlock = document.createElement('span')
+        infoBlock.innerHTML = `${price * count} руб.`
+        const plus = document.createElement('div')
+        plus.classList.add('basket-block__plusBlock')
+        plus.appendChild(this.getPlusBtn())
         const footer = document.createElement('div')
         footer.classList.add('basket-block__footer')
-        footer.appendChild(minus)
-        footer.appendChild(inputBlock)
+
+        const controlBlock = document.createElement('div')
+        controlBlock.classList.add('basket-block__control')
+        controlBlock.appendChild(minus)
+        controlBlock.appendChild(inputBlock)
+        controlBlock.appendChild(plus)
+        footer.appendChild(controlBlock)
+        footer.appendChild(infoBlock)
         const input = inputBlock.querySelector('input')
         inputBlock.addEventListener('input', event => {
             const value = event.target.value
@@ -106,7 +134,6 @@ class Item {
         })
 
         wrapper.appendChild(footer)
-        // return wrapper
         return wrapper
     }
 
@@ -115,8 +142,8 @@ class Item {
 class List {
     items = []
 
-    constructor(item = []) {
-        this.item = []
+    constructor(items = []) {
+        this.items = []
     }
 
     findGood(gun) {
@@ -162,7 +189,6 @@ class Cart extends List {
         Cart._instance = this
     }
 
-
     init() {
         const block = document.createElement('div')
         block.classList.add('basket-block')
@@ -203,15 +229,25 @@ class Cart extends List {
 
         this.render()
     }
-
     getSumTemplate() {
         const sum = this.items.reduce((sum, gun) => {
             return sum + gun.price * gun.count
         }, 0)
 
-        const block = document.createElement('p')
-        block.classList.add('basket-block__sum')
-        block.innerHTML = `Сумма: ${sum}`
+        const block = document.createElement('div')
+        block.classList.add('basket-block__sum-block')
+        block.innerHTML = `<p class="basket-block__sum">Сумма: ${sum} руб.</p>`
+
+        return block
+    }
+    getCountTemplate() {
+        const count = this.items.reduce((count, gun) => {
+            return count +  gun.count
+        }, 0)
+
+        const block = document.createElement('div')
+        block.classList.add('basket-block__count-block')
+        block.innerHTML = `<p class="basket-block__count">Сумма: ${count} руб.</p>`
 
         return block
     }
@@ -241,6 +277,17 @@ class Cart extends List {
             placeToRender.appendChild(this.getSumTemplate())
         } else {
             placeToRender.appendChild(this.getEmptyTemplate())
+        }
+
+        const countPlaceToRender = document.querySelector('.header-block__basket')
+        if (!countPlaceToRender) {
+            return
+        }
+
+        countPlaceToRender.innerHTML = ''
+
+        if (this.items.length) {
+            placeToRender.appendChild(this.getCountTemplate())
         }
     }
 }

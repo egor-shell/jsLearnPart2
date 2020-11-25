@@ -69,14 +69,17 @@
 .basket-block {
   position: absolute;
   top: 125px;
-  right: 0;
+  right: 10px;
   width: 320px;
   max-width: 320px;
   background: #151e35;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
 }
 
 .basket-block__tag {
-  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .basket-block__name {
@@ -91,7 +94,17 @@
 .basket-block__block {
   padding: 30px;
   overflow-y: scroll;
-  max-height: 420px;
+  max-height: 422px;
+}
+
+.basket-block__block::before {
+  content: '';
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid red;
+  position: absolute;
+  top: -30px;
+  right: 92px;
 }
 
 .basket-block__header {
@@ -114,14 +127,28 @@
   font-family: "Exo 2";
   font-weight: normal;
   font-size: 18px;
-  margin-top: 12px;
   color: white;
 }
 
+.basket-block__sum-block {
+  background: #151e35;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  padding-left: 30px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-width: 270px;
+  bottom: -55px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 .basket-block__item {
+  position: relative;
   font-family: "Exo 2";
   font-weight: normal;
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 12px;
   color: white;
   display: -webkit-box;
@@ -131,6 +158,49 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.basket-block__item__img-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.basket-block__item-naming {
+  margin-left: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.basket-block__item-naming span {
+  text-align: right;
+}
+
+.basket-block__item-img {
+  position: absolute;
+  top: -5px;
+  left: -22px;
+  max-width: 107px;
+}
+
+.basket-block__item-round {
+  background: #c4c4c4;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
 }
 
 .basket-block__buy {
@@ -170,31 +240,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 10px;
 }
 
 .basket-block__amount {
-  border-radius: 5px;
-  margin-right: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   outline: none;
   border: none;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
-  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
-  background-size: 150%;
-  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
-          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  background: #DEE2E6;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   padding: 0 17px 12px 5px;
   max-width: 15px;
   max-height: 37px;
   font-family: "Exo 2";
-  font-weight: 600;
+  font-weight: normal;
   font-size: 28px;
   color: white;
   text-align: center;
+}
+
+.basket-block__amount:hover:hover {
+  background-color: #ff8024;
 }
 
 .basket-block__input {
@@ -203,7 +275,6 @@
   font-size: 14px;
   outline: none;
   max-width: 20px;
-  border-radius: 10px;
   border: none;
   text-align: center;
 }
@@ -221,6 +292,36 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.basket-block__control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.basket-block__plus {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #DEE2E6;
+  background-size: 150%;
+  -webkit-transition: .3s;
+  transition: .3s;
+  padding: 0 21px 13px 5px;
+  max-width: 15px;
+  max-height: 37px;
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+
+.basket-block__plus:hover {
+  background-color: #ff8024;
 }
 
 .main {
