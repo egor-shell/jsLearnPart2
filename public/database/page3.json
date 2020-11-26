@@ -28,13 +28,13 @@
             "tag": "AK-47",
             "name": "Неоновый гонщик",
             "price": "7690",
-            "img": "./img/ak_neonrider.png'"
+            "img": "./img/ak_neonrider.png"
         },
         {
             "tag": "AWP",
             "name": "Дикое пламя",
             "price": "7890",
-            "img": "./img/awp_wildfire.png'"
+            "img": "./img/awp_wildfire.png"
         },
         {
             "tag": "AWP",

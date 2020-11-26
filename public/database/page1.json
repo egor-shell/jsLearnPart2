@@ -4,8 +4,8 @@
         { "tag": "Скелетный нож", "name": "Кровавая паутина", "price": "198000", "img": "./img/skeletonKnife_1.png"},
         { "tag": "M4A1-S", "name": "Хот-Род", "price": "10430", "img": "./img/hotRot_1.png"},
         { "tag": "M4A4", "name": "Вой", "price": "153899", "img": "./img/howl_1.png"},
-        { "tag": "Glock-18", "name": "Градиент", "price": "69800", "img": "./img/gradient_1.png'"},
-        { "tag": "AWP", "name": "История о Драконе", "price": "303074", "img": "./img/dragonLore_1.png'"},
+        { "tag": "Glock-18", "name": "Градиент", "price": "69800", "img": "./img/gradient_1.png"},
+        { "tag": "AWP", "name": "История о Драконе", "price": "303074", "img": "./img/dragonLore_1.png"},
         { "tag": "AWP", "name": "Гунгнир", "price": "488800", "img": "./img/gungnir_1.png"},
         { "tag": "AK-47", "name": "Дикий лотос", "price": "290000", "img": "./img/wildLotus_1.png"}
     ]
