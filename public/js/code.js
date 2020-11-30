@@ -362,140 +362,170 @@ class GunsList extends List {
     }
 }
 class HelperForm {
-    patternName = /(^[А-Я])([а-я]{1,15})$|(^[A-Z])([a-z]{1,15})$/gi
-    patternEmail = /([A-Za-z0-9]{1,})\@([a-z]{1,})\.([a-z]{1,})/gi
-    patternPhone = /\+7\([0-9]{3}\)[0-9]{3}\-[0-9]{4}/gi
-
+    patternName = /(^[А-Я])([а-я]{1,15})$|(^[A-Z])([a-z]{1,15})$/
+    patternEmail = /([A-Za-z0-9]{1,})\@([a-z]{1,})\.([a-z]{1,})/
+    patternPhone = /^\+7\(\d{3}\)\d{3}\-\d{4}$/
+    patternMessage = /.{1,}/im
+    
     form = ''
 
     constructor() {
         this.addForm()
+        this.addClose()
         this.addInput('text', 'name')
         this.addInput('text', 'phone')
         this.addInput('email', 'email')
         this.addInput('text', 'text')
+        this.addSumbit()
+        this.checkValid()
     }
 
     addForm() {
-        let main = document.querySelector('.main')
-        let form = document.createElement('form')
+        const main = document.querySelector('.main')
+        const btnForm = document.createElement('button')
+        btnForm.classList.add('main__form-open')
+        btnForm.addEventListener('click', () => {
+            this.form.classList.toggle('disable')
+        })
+        const closeIc = document.createElement('span')
+        closeIc.innerHTML = '?'
+        btnForm.appendChild(closeIc)
+        const form = document.createElement('form')
         form.classList.add('main__form')
+        form.classList.add('disable')
+        form.addEventListener('submit', event => {
+            event.preventDefault()
+        })
         this.form = form
+        main.appendChild(btnForm)
         main.appendChild(form)
     }
     addInput(type, use) {
             switch (use) {
                 case 'name':
-                    let inputName = document.createElement('input')
-                    inputName.classList.add(`main__form-${use}`)
+                    const inputName = document.createElement('input')
+                    inputName.classList.add('main__form-input')
                     inputName.setAttribute('placeholder', 'Введите Имя')
+                    inputName.setAttribute('id', `${use}`)
     
                     this.form.appendChild(inputName)
 
                     break
                 
                     case 'phone':
-                        let inputPhone = document.createElement('input')
-                        inputPhone.classList.add(`main__form-${use}`)
-                        inputPhone.setAttribute('placeholder', 'Ваш телефон: +7(913)626-9612')
+                        const inputPhone = document.createElement('input')
+                        inputPhone.classList.add('main__form-input')
+                        inputPhone.setAttribute('placeholder', 'Ваш телефон')
+                        inputPhone.setAttribute('id', `${use}`)
     
                         this.form.appendChild(inputPhone)
                         break
 
                     case 'email':
-                        let inputEmail = document.createElement('input')
-                        inputEmail.classList.add(`main__form-${use}`)
-                        inputEmail.setAttribute('placeholder', 'Ваш E-mail: qwerty@qwerty.com')
+                        const inputEmail = document.createElement('input')
+                        inputEmail.classList.add('main__form-input')
+                        inputEmail.setAttribute('placeholder', 'Ваш E-mail')
+                        inputEmail.setAttribute('id', `${use}`)
         
                         this.form.appendChild(inputEmail)
                         break
 
                     case 'text':
-                        let inputText = document.createElement('input')
-                        inputText.classList.add(`main__form-${use}`)
+                        const inputText = document.createElement('input')
+                        inputText.classList.add('main__form-input')
                         inputText.setAttribute('placeholder', 'Введите сообщение')
+                        inputText.setAttribute('id', `${use}`)
         
                         this.form.appendChild(inputText)
                         break
                     }
     }
+
+    addSumbit () {
+        const btn = document.createElement('button');
+        btn.innerText = 'Отправить'
+        btn.classList.add('main__form-sumbit')
+        btn.addEventListener('click', () => {
+            this.checkValidBtn()
+        })
+        this.form.appendChild(btn)
+    }
+    addClose() {
+        const btn = document.createElement('button')
+        btn.classList.add('main__form-close')
+        btn.innerHTML = '<span>X</span>'
+        btn.addEventListener('click', () => {
+            const form = document.querySelector('.main__form')
+            form.classList.toggle('disable')
+        })
+        this.form.appendChild(btn)
+    }
+    checkValidBtn() {
+        const inputs = document.querySelectorAll('input')
+        
+        for (let input of inputs) {
+            let check
+            switch (input.id) {
+                case 'name':
+                    check = this.patternName.test(input.value)
+                    break;
+                case 'email':
+                    check = this.patternEmail.test(input.value)
+                    break;
+                case 'phone':
+                    check = this.patternPhone.test(input.value)
+                    break;
+                case 'text':
+                    check = this.patternMessage.test(input.value)
+                    break;
+            }
+
+            if(check) {
+                console.log('Good')
+                input.classList.remove(input.className)
+                input.classList.add('valid')
+            } else {
+                console.log('Try')
+                input.classList.remove(input.className)
+                input.classList.add('invalid')
+            }
+        }
+    }
+    checkValid() {
+        const inputs = document.querySelectorAll('input')
+        
+        for (let input of inputs) {
+            input.addEventListener('blur', () => {
+                let check
+                switch (input.id) {
+                    case 'name':
+                        check = this.patternName.test(input.value)
+                        break;
+                    case 'email':
+                        check = this.patternEmail.test(input.value)
+                        break;
+                    case 'phone':
+                        check = this.patternPhone.test(input.value)
+                        break;
+                    case 'text':
+                        check = this.patternMessage.test(input.value)
+                        break;
+                }
+
+                if(check) {
+                    console.log('Good')
+                    input.classList.remove(input.className)
+                    input.classList.add('valid')
+                } else {
+                    console.log('Try')
+                    input.classList.remove(input.className)
+                    input.classList.add('invalid')
+                }
+            })
+        }
+    }
 }
-// class HelperForm {
 
-//     constructor(){
-//         this.getBtnHelp()
-//         this.render()
-//     }
-//     closeBtnFun() {
-//         const closeBtn = document.createElement('button')
-//         closeBtn.classList.add('main__form-close')
-//         closeBtn.setAttribute('type', 'button')
-//         closeBtn.innerHTML = 'X'
-//         return closeBtn
-//     }
-
-//     getFormTemplate() {
-//         const formHelp = document.createElement('form')
-//         formHelp.classList.add('main__form')
-//         formHelp.classList.add('disable')
-//         formHelp.innerHTML = `
-//         <input 
-//             type="text"
-//             title="Имя и фамилия должны начинаться с заглавной буквы. Использование цифр и любых других символов запрещено."
-//             id="name"
-//             class="main__form-input"
-//         >
-//         <input
-//             type="text"
-//             pattern="/^(?!.*@.*@.*$)(?!.*@.*\-\-.*\..*$)(?!.*@.*\-\..*$)(?!.*@.*\-$)(.*@.+(\..{1,11})?)$/"
-//             title="E-mail должен включать в себя '@'"
-//             id="mail"
-//             class="main__form-input"
-//         >
-//         <input
-//             type="text"
-//             pattern="/(^\+7)(\(\d{3}\))(\d{3})\-(\d{4})$/"
-//             title="Телефон должен иметь вид: +7(999)999-9999"
-//             id="phone"
-//             class="main__form-input"
-//         >
-//         <input
-//             type="text"
-//             id="message"
-//             class="main__form-input"
-//         >
-//         <button type="submit">Отправить</button>
-//         `
-//         return formHelp
-//     }
-
-//     // closeForm () {
-//     //     const closeBtn = document.querySelector('.main__form-close')
-//     //     closeBtn.addEventListener('click', () => {
-//     //         // const formBlock = document.querySelector('.main__form')
-//     //         // formBlock.classList.toggle('disable')
-//     //         console.log('Close')
-//     //     })
-//     // }
-
-//     getBtnHelp() {
-//         const btnHelp = document.createElement('div')
-//         btnHelp.classList.add('main__help-btn')
-//         btnHelp.innerHTML = '<span>?</span>'
-//         btnHelp.addEventListener('click', () => {
-//             const form = document.querySelector('.main__form')
-//             form.classList.toggle('disable')
-//         })
-
-//         return btnHelp
-//     }
-
-//     render () {
-//         const placeToRender = document.querySelector('.form')
-//         placeToRender.appendChild(this.getBtnHelp())
-//         placeToRender.appendChild(this.getFormTemplate())
-//     }
-// }
 const Help = new HelperForm ()
 const CartInstance = new Cart ()
 const GunsListInstance = new GunsList(CartInstance)

@@ -21,7 +21,7 @@
 .bg {
   background: url(img/Background.jpg);
   background-attachment: fixed;
-  padding-bottom: 50px;
+  padding-bottom: 37px;
 }
 
 .container {
@@ -101,7 +101,7 @@
   content: '';
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 30px solid red;
+  border-bottom: 30px solid #151e35;
   position: absolute;
   top: -30px;
   right: 92px;
@@ -564,9 +564,9 @@
 }
 
 .main__form {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -575,6 +575,89 @@
       -ms-flex-direction: column;
           flex-direction: column;
   max-width: 320px;
+  padding: 30px 10px 15px 10px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__form-open {
+  padding: 30px;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 30px;
+  left: 30px;
+}
+
+.main__form-open span {
+  position: absolute;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.main__form-close {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.main__form-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border: 1px black solid;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.main__form-sumbit {
+  padding: 10px 10px 12px 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  color: white;
+}
+
+#text {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .show_more {
@@ -584,5 +667,27 @@
 
 .disable {
   display: none;
+}
+
+.valid {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px green solid;
+}
+
+.invalid {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px red solid;
 }
 /*# sourceMappingURL=style.css.map */

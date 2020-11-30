@@ -30,7 +30,7 @@ $semiBold: 600;
     // background-size: cover;
     // background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-bottom: 50px;
+    padding-bottom: 37px;
 }
 .container {
     max-width: 1280px;
@@ -93,7 +93,7 @@ $semiBold: 600;
             content: '';
             border-left: 15px solid transparent;
             border-right: 15px solid transparent;
-            border-bottom: 30px solid red;
+            border-bottom: 30px solid #151e35;
             position: absolute;
             top: -30px;
             right: 92px;
@@ -450,17 +450,80 @@ $semiBold: 600;
         }
     }
     &__form {
-        position: absolute;
+        position: fixed;
         bottom: 30px;
-        right: 30px;
+        left: 30px;
         display: flex;
         flex-direction: column;
         max-width: 320px;
+        padding: 30px 10px 15px 10px;
+        background-color: white;
+        border-radius: 20px;
+        align-items: center;
 
-        // &-close::before{
-        //     content: "x";
-        // }
+        &-open {
+            padding: 30px;
+            border-radius: 40px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 30px;
+            left: 30px;
+
+            span {
+                position: absolute;
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 22px;
+            }
+        }
+        &-close {
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 16px;
+            position: absolute;
+            top: 5px;
+            right: 20px;
+        }
+        &-input {
+            margin-bottom: 10px;
+            padding: 10px;
+            outline: none;
+            border: 1px black solid;
+            border-radius: 10px;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        &-sumbit {
+            padding: 10px 10px 12px 10px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+            color: white;
+        }
     }
+}
+#text {
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
 }
 .show_more {
     margin-top: 60px;
@@ -468,4 +531,24 @@ $semiBold: 600;
 }
 .disable {
     display: none;
+}
+.valid {
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px green solid;
+}
+.invalid {
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px red solid;
 }
