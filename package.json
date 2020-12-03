@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack serve --hot --config webpack.dev.config.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "babel": "^6.23.0",
-    "babel-loader": "^8.2.1"
+    "babel-loader": "^8.2.1",
+    "webpack-dev-server": "^3.11.0"
   }
 }

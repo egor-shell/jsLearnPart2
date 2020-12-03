@@ -62,6 +62,3 @@ export default class GunsList extends List {
         })
     }
 }
-
-const CartInstance = new Cart ()
-const GunsListInstance = new GunsList(CartInstance)
