@@ -1,0 +1,693 @@
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-Regular.woff2") format("woff2"), url("fonts/Exo2-Regular.woff") format("woff"), url("fonts/Exo2-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url("fonts/Exo2-SemiBold.woff2") format("woff2"), url("fonts/Exo2-SemiBold.woff") format("woff"), url("fonts/Exo2-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  background: url(img/Background.jpg);
+  background-attachment: fixed;
+  padding-bottom: 37px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #2a3246;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 35px 100px 35px 100px;
+}
+
+.header-block__basket {
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.header-block__basket-round {
+  background-color: #d56aa4;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  padding: 2px 7px;
+  border-radius: 100%;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+}
+
+.basket-block {
+  position: absolute;
+  top: 125px;
+  right: 10px;
+  width: 320px;
+  max-width: 320px;
+  background: #151e35;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+}
+
+.basket-block__tag {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.basket-block__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.basket-block__block {
+  padding: 30px;
+  overflow-y: scroll;
+  max-height: 422px;
+}
+
+.basket-block__block::before {
+  content: '';
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #151e35;
+  position: absolute;
+  top: -30px;
+  right: 92px;
+}
+
+.basket-block__header {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+
+.basket-block__empty {
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 12px;
+  color: white;
+}
+
+.basket-block__sum {
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 18px;
+  color: white;
+}
+
+.basket-block__sum-block {
+  background: #151e35;
+  padding-top: 33px;
+  padding-bottom: 33px;
+  padding-left: 30px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-width: 270px;
+  bottom: -55px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.basket-block__item {
+  position: relative;
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 12px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.basket-block__item__img-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.basket-block__item-naming {
+  margin-left: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.basket-block__item-naming span {
+  text-align: right;
+}
+
+.basket-block__item-img {
+  position: absolute;
+  top: -5px;
+  left: -22px;
+  max-width: 107px;
+}
+
+.basket-block__item-round {
+  background: #c4c4c4;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+}
+
+.basket-block__buy {
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 7px 15px 12px 15px;
+}
+
+.basket-block__buy-text {
+  font-family: "Exo 2";
+  font-weight: 600;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: normal;
+}
+
+.basket-block__buy:hover {
+  background-position: right;
+}
+
+.basket-block__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+
+.basket-block__amount {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #DEE2E6;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0 17px 12px 5px;
+  max-width: 15px;
+  max-height: 37px;
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+
+.basket-block__amount:hover:hover {
+  background-color: #ff8024;
+}
+
+.basket-block__input {
+  padding: 10px;
+  font-family: "Exo 2";
+  font-size: 14px;
+  outline: none;
+  max-width: 20px;
+  border: none;
+  text-align: center;
+}
+
+.basket-block__input-sum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.basket-block__control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.basket-block__plus {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #DEE2E6;
+  background-size: 150%;
+  -webkit-transition: .3s;
+  transition: .3s;
+  padding: 0 21px 13px 5px;
+  max-width: 15px;
+  max-height: 37px;
+  font-family: "Exo 2";
+  font-weight: normal;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+
+.basket-block__plus:hover {
+  background-color: #ff8024;
+}
+
+.basket-block__count {
+  color: white;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding-bottom: 1px;
+}
+
+.basket-block__count-block {
+  background-color: #f766b3;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 32px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main__line-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 25%;
+}
+
+.main__line-item:hover .main__line-item-small {
+  width: 110%;
+}
+
+.main__line-item:hover .main__line-item-big {
+  width: 150%;
+}
+
+.main__line-item-gun {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__line-item-header {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.main__line-item-small {
+  position: absolute;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.main__line-item-big {
+  position: absolute;
+  width: 135%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.main__line-item-round {
+  background: #c4c4c4;
+  border-radius: 100%;
+  padding: 85px;
+  -webkit-box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+          box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+}
+
+.main__line-item-name {
+  font-family: "Exo 2";
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+}
+
+.main__line-item-price {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+}
+
+.main__line-item-buy {
+  padding-top: 7px;
+  padding-bottom: 15px;
+  width: 100%;
+  max-width: 170px;
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main__line-item-buy__text {
+  font-family: "Exo 2";
+  font-weight: 600;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+.main__line-item-buy:hover {
+  margin-top: 14px;
+  background-position: right;
+}
+
+.main__btn-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main__button {
+  color: white;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  width: 100%;
+  max-width: 170px;
+  border-radius: 35px;
+  margin-top: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+  background-size: 150%;
+  -webkit-box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+          box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.main__button:hover {
+  background-position: right;
+}
+
+.main__help-btn {
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 50px;
+  color: white;
+  background-color: #c4c4c4;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  padding-bottom: 2px;
+  border-radius: 30px;
+  bottom: 30px;
+  right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__help-btn span {
+  width: 100%;
+  text-align: center;
+}
+
+.main__form {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 320px;
+  padding: 30px 10px 15px 10px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__form-open {
+  padding: 30px;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 30px;
+  left: 30px;
+}
+
+.main__form-open span {
+  position: absolute;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.main__form-close {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.main__form-input {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border: 1px black solid;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.main__form-sumbit {
+  padding: 10px 10px 12px 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right top, from(#ff8024), color-stop(80%, #df499a));
+  background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+  color: white;
+}
+
+#text {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.show_more {
+  margin-top: 60px;
+  width: 170px;
+}
+
+.disable {
+  display: none;
+}
+
+.valid {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px green solid;
+}
+
+.invalid {
+  margin-bottom: 10px;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  font-family: "Exo 2";
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px red solid;
+}
+/*# sourceMappingURL=style.css.map */

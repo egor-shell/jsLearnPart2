@@ -1,0 +1,554 @@
+$pink: #d56aa4;
+$regular: 400;
+$semiBold: 600;
+
+@font-face {
+    font-family: "Exo 2";
+    src: url("fonts/Exo2-Regular.woff2") format("woff2"), url("fonts/Exo2-Regular.woff") format("woff"),
+        url("fonts/Exo2-Regular.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Exo 2";
+    src: url("fonts/Exo2-SemiBold.woff2") format("woff2"), url("fonts/Exo2-SemiBold.woff") format("woff"),
+        url("fonts/Exo2-SemiBold.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.bg {
+    background: url(img/Background.jpg);
+    // background-color: #464542;
+    // background-position-x: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-bottom: 37px;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.header {
+    background-color: #2a3246;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+
+    &-block {
+        display: flex;
+        justify-content: space-between;
+        padding: 35px 100px 35px 100px;
+
+        &__basket {
+            position: relative;
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            &-round {
+                background-color: $pink;
+                position: absolute;
+                top: 0;
+                right: -10px;
+                padding: 2px 7px;
+                border-radius: 100%;
+                font-family: "Exo 2";
+                font-weight: $semiBold;
+                font-size: 12px;
+                color: white;
+            }
+        }
+    }
+}
+.basket-block {
+    position: absolute;
+    top: 125px;
+    right: 10px;
+    width: 320px;
+    max-width: 320px;
+    background: #151e35;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+
+    &__tag {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__name {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block {
+        padding: 30px;
+        overflow-y: scroll;
+        max-height: 422px;
+
+        &::before {
+            content: '';
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #151e35;
+            position: absolute;
+            top: -30px;
+            right: 92px;
+        }
+    }
+    &__header {
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+    }
+    &__empty {
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 18px;
+        margin-top: 12px;
+        color: white;
+    }
+    &__sum {
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 18px;
+        color: white;
+    }
+    &__sum-block {
+        background: #151e35;
+        padding-top: 33px;
+        padding-bottom: 33px;
+        padding-left: 30px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        max-width: 270px;
+        bottom: -55px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    &__item {
+        position: relative;
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 14px;
+        margin-top: 12px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+
+        &__img-name {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-naming {
+            margin-left: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            span {
+                text-align: right;
+            }
+        }
+        &-img {
+            position: absolute;
+            top: -5px;
+            left: -22px;
+            max-width: 107px;
+        }
+        &-round {
+            background: #c4c4c4;
+            width: 64px;
+            height: 64px;
+            border-radius: 50px;
+        }
+    }
+    &__buy {
+        border-radius: 35px;
+        margin-top: 24px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+        background-size: 150%;
+        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        transition: 0.3s;
+        padding: 7px 15px 12px 15px;
+
+        &-text {
+            font-family: "Exo 2";
+            font-weight: 600;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            line-height: normal;
+        }
+
+        &:hover {
+            background-position: right;
+        }
+    }
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    &__amount {
+        // border-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: #DEE2E6;
+        transition: 0.3s;
+        padding: 0 17px 12px 5px;
+        max-width: 15px;
+        max-height: 37px;
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+
+        &:hover {
+            &:hover {
+                background-color: rgb(255, 128, 36);
+            }
+        }
+    }
+    &__input {
+        padding: 10px;
+        font-family: "Exo 2";
+        font-size: 14px;
+        outline: none;
+        max-width: 20px;
+        border: none;
+        text-align: center;
+
+        &-sum {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+        }
+    }
+    &__control {
+        display: flex;
+    }
+    &__plus {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: #DEE2E6;
+        background-size: 150%;
+        transition: .3s;
+        padding: 0 21px 13px 5px;
+        max-width: 15px;
+        max-height: 37px;
+        font-family: "Exo 2";
+        font-weight: normal;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+
+        &:hover {
+            background-color: rgb(255, 128, 36);
+        }
+    }
+    &__count{
+        color: white;
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 14px;
+        text-align: center;
+        padding-bottom: 1px;
+
+        &-block {
+            background-color: #f766b3;
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            position: absolute;
+            top: 0;
+            right: -12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__line {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 32px;
+        flex-wrap: wrap;
+        &-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            width: 25%;
+
+            &:hover .main__line-item-small {
+                width: 110%;
+            }
+            &:hover .main__line-item-big {
+                width: 150%;
+            }
+            &-gun {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &-header {
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 24px;
+                color: white;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+            &-small {
+                position: absolute;
+                width: 100%;
+                transition: 0.3s;
+                transition-timing-function: ease-in-out;
+            }
+            &-big {
+                position: absolute;
+                width: 135%;
+                transition: 0.3s;
+                transition-timing-function: ease-in-out;
+            }
+            &-round {
+                background: #c4c4c4;
+                border-radius: 100%;
+                padding: 85px;
+                box-shadow: 0px 0px 50px rgba(213, 106, 164, 0.5);
+            }
+            &-name {
+                font-family: "Exo 2";
+                font-weight: 400;
+                font-size: 24px;
+                color: white;
+            }
+            &-price {
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 18px;
+                color: white;
+            }
+            &-buy {
+                padding-top: 7px;
+                padding-bottom: 15px;
+                width: 100%;
+                max-width: 170px;
+                border-radius: 35px;
+                margin-top: 24px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+                // background: linear-gradient(to right, #ff8024, #df499a);
+                background-size: 150%;
+                box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+                transition: 0.3s;
+
+                &__text {
+                    font-family: "Exo 2";
+                    font-weight: $semiBold;
+                    color: white;
+                    font-size: 24px;
+                    text-align: center;
+                }
+
+                &:hover {
+                    margin-top: 14px;
+                    background-position: right;
+                }
+            }
+        }
+    }
+    &__btn-block {
+        display: flex;
+        justify-content: center;
+    }
+    &__button {
+        color: white;
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        width: 100%;
+        max-width: 170px;
+        border-radius: 35px;
+        margin-top: 24px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: -webkit-linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        background: linear-gradient(to right, rgba(255, 128, 36, 1) 0%, rgba(223, 73, 154, 1) 80%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8024",endColorstr="#df499a",GradientType=1);
+        background-size: 150%;
+        box-shadow: 0px 15px 15px rgba(240, 101, 92, 0.25);
+        transition: 0.3s;
+
+        &:hover {
+            background-position: right;
+        }
+    }
+    &__help-btn {
+        font-family: "Exo 2";
+        font-weight: 600;
+        font-size: 50px;
+        color: white;
+        background-color: #c4c4c4;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        padding-bottom: 2px;
+        // padding-left: 11px;
+        // padding-right: 11px;
+        border-radius: 30px;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+
+        span {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    &__form {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        display: flex;
+        flex-direction: column;
+        max-width: 320px;
+        padding: 30px 10px 15px 10px;
+        background-color: white;
+        border-radius: 20px;
+        align-items: center;
+
+        &-open {
+            padding: 30px;
+            border-radius: 40px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 30px;
+            left: 30px;
+
+            span {
+                position: absolute;
+                font-family: "Exo 2";
+                font-weight: 600;
+                font-size: 22px;
+            }
+        }
+        &-close {
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 16px;
+            position: absolute;
+            top: 5px;
+            right: 20px;
+        }
+        &-input {
+            margin-bottom: 10px;
+            padding: 10px;
+            outline: none;
+            border: 1px black solid;
+            border-radius: 10px;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        &-sumbit {
+            padding: 10px 10px 12px 10px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-family: "Exo 2";
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            background: linear-gradient(to right, #ff8024 0%, #df499a 80%);
+            color: white;
+        }
+    }
+}
+#text {
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+}
+.show_more {
+    margin-top: 60px;
+    width: 170px;
+}
+.disable {
+    display: none;
+}
+.valid {
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px green solid;
+}
+.invalid {
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px red solid;
+}

@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "tag": "Desert Eagle",
+            "name": "Поток информации",
+            "price": "17325",
+            "img": "./img/Printstream.png"
+        },
+        {
+            "tag": "P250",
+            "name": "Прощальный оскал",
+            "price": "934",
+            "img": "./img/seeyalater.png"
+        },
+        {
+            "tag": "Five-SeveN",
+            "name": "Буйство красок",
+            "price": "6330",
+            "img": "./img/fs_hyperbeast.png"
+        },
+        {
+            "tag": "USP-S",
+            "name": "Нео-нуар",
+            "price": "4070",
+            "img": "./img/usp_neonuor.png"
+        },
+        {
+            "tag": "FAMAS",
+            "name": "Защитный каркас",
+            "price": "1890",
+            "img": "./img/famas_rollcage.png"
+        },
+        {
+            "tag": "M4A4",
+            "name": "Облом",
+            "price": "3207",
+            "img": "./img/m4_buzzkill.png"
+        },
+        {
+            "tag": "AWP",
+            "name": "Oni Taiji",
+            "price": "16999",
+            "img": "./img/awp_onitaiji.png"
+        },
+        {
+            "tag": "MP7",
+            "name": "Кровавый спорт",
+            "price": "525",
+            "img": "./img/mp7_bloodsport.png"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "tag": "AK-47",
+            "name": "Легион Анубиса",
+            "price": "5614",
+            "img": "./img/ak_legionofanubis.png"
+        },
+        {
+            "tag": "Glock-18",
+            "name": "Королева пуль",
+            "price": "7400",
+            "img": "./img/glock_queenofbullet.png"
+        },
+        {
+            "tag": "M4A1-S",
+            "name": "Второй игрок",
+            "price": "7800",
+            "img": "./img/m4_player2.png"
+        },
+        {
+            "tag": "MAC-10",
+            "name": "На охоте",
+            "price": "14559",
+            "img": "./img/mac_stalker.png"
+        },
+        {
+            "tag": "AK-47",
+            "name": "Неоновый гонщик",
+            "price": "7690",
+            "img": "./img/ak_neonrider.png"
+        },
+        {
+            "tag": "AWP",
+            "name": "Дикое пламя",
+            "price": "7890",
+            "img": "./img/awp_wildfire.png"
+        },
+        {
+            "tag": "AWP",
+            "name": "Нео-нуар",
+            "price": "3598",
+            "img": "./img/awp_neonoir.png"
+        },
+        {
+            "tag": "AK-47",
+            "name": "Азимов",
+            "price": "11989",
+            "img": "./img/ak_asimov.png"
+        }
+    ]
+}
