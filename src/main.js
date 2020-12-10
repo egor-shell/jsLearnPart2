@@ -1,9 +1,13 @@
-import List from './List.js'
-import Item from './Item.js'
-import Cart from './Cart.js'
-import GunsList from './GunsList.js'
-import HelperForm from './HelperForm.js'
+import Vue from 'vue'
+import App from './App.vue'
 
-const CartInstance = new Cart ()
-const GunsListInstance = new GunsList(CartInstance)
-const Help = new HelperForm ()
+import store from './store'
+
+new Vue ({
+    el: 'section',
+    template: '<App />',
+    components: {
+        App,
+    },
+    store,
+})

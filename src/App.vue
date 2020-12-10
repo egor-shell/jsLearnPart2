@@ -1,0 +1,51 @@
+<template>
+    <section class="bg" id="App">
+        <headerBlock />
+        <main>
+            <div class="container">
+                <div class="main__line">       
+            <Item 
+                v-for="good in items"
+                :key="good.id"
+                :name="good.name"
+                :price="good.price"
+                :tag="good.tag"
+                :img="good.img"
+            />
+                </div>
+            </div>
+            <Cart />
+            <HelperForm />
+        </main>
+    </section>
+</template>
+
+<script>
+import headerBlock from './Components/headerBlock.vue'
+import Item from './Components/Item.vue'
+import Cart from './Components/Cart.vue'
+import HelperForm from './Components/HelperForm.vue'
+export default {
+  components: {
+      Cart,
+      headerBlock,
+      Item,
+      HelperForm,
+  },
+  data() {
+      return {
+          items: [
+            { tag: "Desert Eagle", name: "Пламя", price: 23325, img: 'img/Blaze_1.png', "id": "1"},
+            { tag: "Скелетный нож", name: "Кровавая паутина", price: 198000, img: "img/skeletonKnife_1.png", "id": "2"},
+            { tag: "M4A1-S", name: "Хот-Род", price: 10430, img: "img/hotRot_1.png", "id": "3"},
+            { tag: "M4A4", name: "Вой", price: 153899, img: "img/howl_1.png", "id": "4"},
+            { tag: "Glock-18", name: "Градиент", price: 69800, img: "img/gradient_1.png", "id": "5"},
+            { tag: "AWP", name: "История о Драконе", price: 303074, img: "img/dragonLore_1.png", "id": "6"},
+            { tag: "AWP", name: "Гунгнир", price: 488800, img: "img/gungnir_1.png", "id": "7"},
+            { tag: "AK-47", name: "Дикий лотос", price: 290000, img: "img/wildLotus_1.png", id: 8}
+          ],
+      }
+  }
+    
+}
+</script>
