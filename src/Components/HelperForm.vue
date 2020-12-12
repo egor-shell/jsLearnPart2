@@ -11,7 +11,7 @@
         <input class="main__form-input" placeholder="Ваш телефон" id="phone">
         <input class="main__form-input" placeholder="Ваш E-mail" id="email">
         <input class="main__form-input" placeholder="Введите сообщение" id="text">
-        <button class="main__form-sumbit">
+        <button class="main__form-sumbit" @click.stop.prevent="sumbit">
             Отправить
         </button>
     </form>
@@ -28,6 +28,9 @@ export default {
         closeForm () {
             const form = document.querySelector('form')
             form.classList.toggle('disable')
+        },
+        sumbit() {
+            console.log ('Ваше сообщение отправлено!')
         }
     }
 

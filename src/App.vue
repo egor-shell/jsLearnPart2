@@ -4,17 +4,17 @@
         <main>
             <div class="container">
                 <div class="main__line">       
-            <Item 
-                v-for="good in items"
-                :key="good.id"
-                :name="good.name"
-                :price="good.price"
-                :tag="good.tag"
-                :img="good.img"
-            />
+                    <Item 
+                        v-for="id in getItemsOnPage"
+                        :key="id"
+                        :id="id"
+                    />
+                    <div class="main__btn-block">
+                        <button class="main__button" @click="fetchMore">Показать ещё</button>
+                    </div>
                 </div>
             </div>
-            <Cart />
+            <Cart/>
             <HelperForm />
         </main>
     </section>
@@ -25,6 +25,7 @@ import headerBlock from './Components/headerBlock.vue'
 import Item from './Components/Item.vue'
 import Cart from './Components/Cart.vue'
 import HelperForm from './Components/HelperForm.vue'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   components: {
       Cart,
@@ -34,18 +35,32 @@ export default {
   },
   data() {
       return {
-          items: [
-            { tag: "Desert Eagle", name: "Пламя", price: 23325, img: 'img/Blaze_1.png', "id": "1"},
-            { tag: "Скелетный нож", name: "Кровавая паутина", price: 198000, img: "img/skeletonKnife_1.png", "id": "2"},
-            { tag: "M4A1-S", name: "Хот-Род", price: 10430, img: "img/hotRot_1.png", "id": "3"},
-            { tag: "M4A4", name: "Вой", price: 153899, img: "img/howl_1.png", "id": "4"},
-            { tag: "Glock-18", name: "Градиент", price: 69800, img: "img/gradient_1.png", "id": "5"},
-            { tag: "AWP", name: "История о Драконе", price: 303074, img: "img/dragonLore_1.png", "id": "6"},
-            { tag: "AWP", name: "Гунгнир", price: 488800, img: "img/gungnir_1.png", "id": "7"},
-            { tag: "AK-47", name: "Дикий лотос", price: 290000, img: "img/wildLotus_1.png", id: 8}
-          ],
+          items: [],
+          page: 1
       }
+  },
+  methods: {
+    ...mapActions('goods', [
+        'requestData'
+    ]),
+    fetchMore() {
+        console.log(this.page)
+        this.requestData(this.page)
+            .then(() => {
+                this.page++
+            })
+    }
+  },
+  computed: {
+      ...mapGetters('goods', [
+          'getItemsOnPage',
+      ]),
+        // currentItem () {
+        //   return this.getData[this.id] || {}
+        // }
+  },
+  mounted() {
+      this.fetchMore()
   }
-    
 }
 </script>

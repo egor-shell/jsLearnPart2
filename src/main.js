@@ -11,3 +11,5 @@ new Vue ({
     },
     store,
 })
+
+Vue.config.devtools = true
