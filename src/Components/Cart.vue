@@ -12,6 +12,7 @@
                 >
                 {{ getData[id].name }} - {{ getData[id].count }} - {{ getData[id].price }}
             </div>
+            FULL price: {{ fullPrice }}
         </div>
     </div>
 </template>
@@ -26,8 +27,12 @@ export default {
             'getData',
             'getItemsInCart'
         ]),
-        currentItem () {
-            return this.getData[this.id] || {}
+        fullPrice () {
+            return this.getItemsInCart.reduce((sum, cur) => {
+                const data = this.getData[cur]
+                sum += +data.price * data.count
+                return sum
+            }, 0)
         }
     }
 }
