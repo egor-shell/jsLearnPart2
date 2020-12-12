@@ -2,17 +2,20 @@ const state = {
     data: {},
     itemsOnPage: [],
     itemsInCart: [],
-}
-const mutations = {
+  }
+  const mutations = {
     setData(state, newData) {
         state.data = {...state.data, ...newData}
         state.itemsOnPage.push(...Object.keys(newData))
     },
     addInCart(state, id) {
         state.itemsInCart.push(id)
+    },
+    increaseCounter(state, id) {
+        state.data[id].count++
     }
-}
-const actions = {
+  }
+  const actions = {
     requestData ({ commit }, page = 1) {
         if (!page) {
             return
@@ -28,20 +31,25 @@ const actions = {
             })
     },
     addInCart ({ state, commit }, id) {
-        commit('addInCart', id)
+        if (state.itemsInCart.find(idInCart => idInCart === id)) {
+            commit('increaseCounter', id)
+        } else {
+            commit('addInCart', id)
+        }
     }
-}
-const getters = {
+  }
+  const getters = {
     getData: state => state.data,
     getItemsOnPage: state => state.itemsOnPage,
     getItemsInCart: state => state.itemsInCart,
-
-}
-
-export default {
+  
+  }
+  
+  export default {
     namespaced: true,
     state,
     mutations,
     actions,
     getters,
-}
+  }
+  
