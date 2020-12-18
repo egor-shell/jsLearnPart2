@@ -2,7 +2,7 @@
 
     "1": { "tag": "Desert Eagle", "name": "Пламя", "price": "23325", "img": "img/Blaze_1.png", "id": "1", "count": 1},
     "2": { "tag": "Скелетный нож", "name": "Кровавая паутина", "price": "198000", "img": "img/skeletonKnife_1.png", "id": "2", "count": 1},
-    "3": { "tag": "M4A1-S", "name": "Хот-Род", "price": "10430", "img": "img/hotRot_1.png", "id": "3", "count": 1},
+    "3": { "tag": "M4A1-S", "name": "Хот-Род", "price": "10430", "img": "img/hotRot_1.png", "id": "Три", "count": 1},
     "4": { "tag": "M4A4", "name": "Вой", "price": "153899", "img": "img/howl_1.png", "id": "4", "count": 1},
     "5": { "tag": "Glock-18", "name": "Градиент", "price": "69800", "img": "img/gradient_1.png", "id": "5", "count": 1},
     "6": { "tag": "AWP", "name": "История о Драконе", "price": "303074", "img": "img/dragonLore_1.png", "id": "6", "count": 1},

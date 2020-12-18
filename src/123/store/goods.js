@@ -13,14 +13,7 @@ const mutations = {
     },
     increaseCounter(state, id) {
         state.data[id].count++
-    },
-    removeFromCart(state, index) {
-        console.log(`Remove ${index}`)
-        state.itemsInCart.splice(index, 1)
-    },
-    decreaseCounter(state, id){
-        state.data[id].count--
-    },
+    }
 }
 const actions = {
     requestData ({ commit }, page = 1) {
@@ -38,20 +31,13 @@ const actions = {
             })
     },
     addInCart ({ state, commit }, id) {
+        console.log(getData[this.id])
         if (state.itemsInCart.find(item => item === id)) {
             commit('increaseCounter', id)
         } else {
             commit('addInCart', id)
         }
-    },
-    removeFromCart({ state, commit }, index) {
-        let id = state.itemsInCart[index]
-        if (state.data[id].count > 1) {
-            commit('decreaseCounter', id)
-        } else {
-            commit('removeFromCart', index)
-        }
-    },
+    }
 }
 const getters = {
     getData: state => state.data,

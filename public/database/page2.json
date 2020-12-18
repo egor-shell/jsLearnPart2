@@ -1,39 +1,58 @@
 {
-    "9": { "tag": "Desert Eagle", "name": "Поток информации", "price": "17325", "img": "./img/Printstream.png"},
-    "10": { "tag": "P250", "name": "Прощальный оскал", "price": "934", "img": "./img/seeyalater.png"},
-    "11": { "tag": "Five-SeveN",
+    "9": { 
+        "tag": "Desert Eagle", 
+        "name": "Поток информации", 
+        "price": "17325", 
+        "img": "./img/Printstream.png",
+        "count": "1"
+    },
+    "10": { 
+        "tag": "P250", 
+        "name": "Прощальный оскал", 
+        "price": "934", 
+        "img": "./img/seeyalater.png",
+        "count": "1"
+    },
+    "11": { 
+        "tag": "Five-SeveN",
         "name": "Буйство красок",
         "price": "6330",
-        "img": "./img/fs_hyperbeast.png"
+        "img": "./img/fs_hyperbeast.png",
+        "count": "1"
     },
     "12": {
         "tag": "USP-S",
         "name": "Нео-нуар",
         "price": "4070",
-        "img": "./img/usp_neonuor.png"
+        "img": "./img/usp_neonuor.png",
+        "count": "1"
     },
     "13": {
         "tag": "FAMAS",
         "name": "Защитный каркас",
         "price": "1890",
-        "img": "./img/famas_rollcage.png"
+        "img": "./img/famas_rollcage.png",
+        "count": "1"
     },
     "14": {
         "tag": "M4A4",
         "name": "Облом",
         "price": "3207",
-        "img": "./img/m4_buzzkill.png"
+        "img": "./img/m4_buzzkill.png",
+        "count": "1"
     },
     "15": {
         "tag": "AWP",
         "name": "Oni Taiji",
         "price": "16999",
-        "img": "./img/awp_onitaiji.png"
+        "img": "./img/awp_onitaiji.png",
+        "count": "1"
     },
     "16": {
         "tag": "MP7",
         "name": "Кровавый спорт",
         "price": "525",
-        "img": "./img/mp7_bloodsport.png"
+        "img": "./img/mp7_bloodsport.png",
+        "count": "1"
     }
 }

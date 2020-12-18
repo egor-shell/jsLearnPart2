@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <Cart/>
+            <Cart />
             <HelperForm />
         </main>
     </section>
@@ -44,16 +44,24 @@ export default {
         'requestData'
     ]),
     fetchMore() {
+        console.log(this.page)
         this.requestData(this.page)
             .then(() => {
                 this.page++
             })
+    },
+    addToCart(data){
+        console.log(data)
     }
   },
   computed: {
       ...mapGetters('goods', [
           'getItemsOnPage',
+          'getItemsInCart'
       ]),
+        // currentItem () {
+        //   return this.getData[this.id] || {}
+        // }
   },
   mounted() {
       this.fetchMore()

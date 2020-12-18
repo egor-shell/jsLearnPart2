@@ -7,8 +7,8 @@
          </div>
          <h3 class="main__line-item-name">{{ currentItem.name }}</h3>
          <h3 class="main__line-item-price">{{ currentItem.price }} руб.</h3>
-        <button class="main__line-item-buy" @click="onBuyClick">
-            <p class="main__line-item-buy__text">Купить</p>
+        <button class="main__line-item-buy" @click="addToCart">
+            <p class="main__line-item-buy__text">Купить {{ currentItem.id}}</p>
         </button>
     </div>
 </template>
@@ -16,7 +16,7 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
     props: {
-        id: Object
+        id: String,
     },
     computed: {
         ...mapGetters('goods', [
@@ -31,8 +31,9 @@ export default {
         ...mapActions('goods', [
             'addInCart',
         ]),
-        onBuyClick() {
-            this.addInCart(this.id)
+        addToCart() {
+            this.$emit('addInCart', this.id)
+            // console.log(this.getData[this.id].id)
         },
     },
 }
